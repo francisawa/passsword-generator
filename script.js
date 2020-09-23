@@ -45,14 +45,76 @@ generateBtn.addEventListener("click", writePassword);
 //////////////////////////////////////////////////////////////////////
 function generatePassword(){
 
-  var passLength =prompt("how many characters long do you want your password to be")
+  var passLength = prompt("how many characters long do you want your password to be")
+  passLength = parseInt(passLength)
   if (passLength < 8 || passLength > 128)
   {
     alert("password needs to be greater than 8 but less than 128")
   }
+  //Checks for the if statements
   var addNumber =confirm("do you want to add numbers")
   var addLowercase =confirm("do you want to  lowercase Characters")
-  var addUppercase =confirm("do you want to upperchaaracters")
+  var addUppercase =confirm("do you want to uppercharacters")
+  var addSpecialcharacters = confirm("do you want to add special characters")
+  var passwordArr = []
+  var guranteedCharcacters = []
+
+  //If they want numbers
+  if(addNumber === true) {
+    //get a random number
+    var num = randomize(numberChars)
+    //push to the password array
+    passwordArr.push(num)
+    //concat the number array into guranteedChars
+    guranteedCharcacters = guranteedCharcacters.concat(numberChars)
+  }
   
-  console.log(passLength)
+  //If they want lowercase
+  if(addLowercase === true) {
+    //get a random number
+    var char = randomize(lowerChars)
+    //push to the password array
+    passwordArr.push(char)
+    //concat the number array into guranteedChars
+    guranteedCharcacters = guranteedCharcacters.concat(lowerChars)
+
+  } 
+
+  //If they want uppercase
+  if(addUppercase === true) {
+    //get a random number
+    var char = randomize(upperChars)
+    //push to the password array
+    passwordArr.push(char)
+    //concat the number array into guranteedChars
+    guranteedCharcacters = guranteedCharcacters.concat(upperChars)
+  }
+  
+  //i
+  if(addSpecialcharacters === true) {
+    //get a random number
+    var char = randomize(specialChars)
+    //push to the password array
+    passwordArr.push(char)
+    //concat the number array into guranteedChars
+    guranteedCharcacters = guranteedCharcacters.concat(specialChars)
+  } 
+  console.log(passwordArr)
+  //for loop passlength + randomize(guranteedCharacters)
+  while(passwordArr.length < passLength){
+    //get a random number
+    var char = randomize(guranteedCharcacters)
+    console.log(guranteedCharcacters)
+    console.log(char)
+    //push to the password array
+    passwordArr.push(char)
+  }
+  
+  var password = passwordArr.join("")
+  return password;
+}
+
+function randomize(arr) {
+  var index = Math.floor(Math.random() * arr.length)
+  return arr[index]
 }
