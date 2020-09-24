@@ -52,10 +52,10 @@ function generatePassword(){
     alert("password needs to be greater than 8 but less than 128")
   }
   //Checks for the if statements
-  var addNumber =confirm("do you want to add numbers")
-  var addLowercase =confirm("do you want to  lowercase Characters")
-  var addUppercase =confirm("do you want to uppercharacters")
-  var addSpecialcharacters = confirm("do you want to add special characters")
+  var addNumber =confirm("Do you want to add numbers?")
+  var addLowercase =confirm("Do you want to add lowercase characters?")
+  var addUppercase =confirm("Do you want to add upper characters?")
+  var addSpecialcharacters = confirm("Do you want to add special characters?")
   var passwordArr = []
   var guranteedCharcacters = []
 
