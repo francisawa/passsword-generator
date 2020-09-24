@@ -45,7 +45,7 @@ generateBtn.addEventListener("click", writePassword);
 //////////////////////////////////////////////////////////////////////
 function generatePassword(){
 
-  var passLength = prompt("how many characters long do you want your password to be")
+  var passLength = prompt("How many characters long do you want your password to be?")
   passLength = parseInt(passLength)
   if (passLength < 8 || passLength > 128)
   {
